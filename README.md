@@ -17,24 +17,46 @@
 <a name="english"></a>
 ## 🌍 English
 
-### 🧬 Scientific Principle: The Physics of Detection
-The "Ghost Whisper" system relies on **Quantum Magnetometry** (typically SQUIDs or OPMs) to detect the Magnetocardiogram (MCG) of a human target.
+### 🧬 Technical Deep Dive: The Physics of Bio-Magnetism
 
-The magnetic field strength $B$ of a human heart (modeled as a magnetic dipole $m$) follows the **Inverse-Cube Law**:
+#### 1. The Magnetic Dipole Model
+The human heart's electrical activity (depolarization and repolarization) generates a weak magnetic field called the **Magnetocardiogram (MCG)**. In long-range detection, the heart is modeled as a **Magnetic Dipole ($m$)**.
+The magnetic flux density $B$ at a distance $r$ is given by:
 $$B(r) \approx \frac{\mu_0}{4\pi} \frac{m}{r^3}$$
-At a distance of **64 km**, the signal is attenuated by a factor of $\approx 2.6 \times 10^{14}$. This project simulates how AI-driven **Blind Source Separation (BSS)** recovers these signals from femtotesla-level noise.
+Where:
+- $\mu_0 = 4\pi \times 10^{-7} \text{ T}\cdot\text{m/A}$ (Permeability of free space)
+- $m \approx 10^{-6} \text{ A}\cdot\text{m}^2$ (Human heart dipole moment)
+
+#### 2. The Quantum Advantage
+Standard Hall-effect sensors or fluxgates have a noise floor of $\sim 10^{-9} \text{ T}$. 
+"Ghost Whisper" utilizes **Optically Pumped Magnetometers (OPMs)** or **SQUIDs**, reaching sensitivities of:
+- **OPM Sensitivity**: $\sim 1 \text{ fT}/\sqrt{\text{Hz}}$ ($10^{-15} \text{ T}$)
+- **Environmental Noise**: Earth's magnetic field is $\sim 50 \text{ }\mu\text{T}$. 
+
+**The Challenge:** Extracting a $10^{-15} \text{ T}$ signal from a $10^{-5} \text{ T}$ noisy background—a Signal-to-Noise Ratio (SNR) of **-200 dB**.
 
 ---
 
 <a name="chinese"></a>
 ## 🇨🇳 中文
 
-### 🧬 科学原理：探测背后的物理学
-“幽灵低语”系统依赖于**量子磁力测量技术**（如 SQUIDs 或 OPMs）来探测目标的心磁图 (MCG)。
+### 🧬 技术深度解析：生物磁学物理原理
 
-人体心脏产生的磁场强度 $B$（将其模拟为磁偶极子 $m$）遵循**三次方反比定律**：
+#### 1. 磁偶极子模型
+人类心脏的电活动（去极化和复极化）会产生微弱的磁场，称为**心磁图 (MCG)**。在远距离探测中，心脏被抽象为一个**磁偶极子 ($m$)**。
+距离 $r$ 处的磁感应强度 $B$ 由下式给出：
 $$B(r) \approx \frac{\mu_0}{4\pi} \frac{m}{r^3}$$
-在 **64 公里** 的距离上，信号衰减倍数约为 $2.6 \times 10^{14}$。本项目模拟了 AI 驱动的**盲源分离 (BSS)** 如何从皮特斯拉 (fT) 级别的极低信噪比杂讯中恢复这些生命体征。
+其中：
+- $\mu_0 = 4\pi \times 10^{-7} \text{ T}\cdot\text{m/A}$ (真空磁导率)
+- $m \approx 10^{-6} \text{ A}\cdot\text{m}^2$ (人类心脏磁矩)
+
+#### 2. 量子探测优势
+普通的霍尔传感器或磁通门传感器的噪声底噪约为 $10^{-9} \text{ T}$。
+“幽灵低语”利用了**光泵磁力计 (OPMs)** 或 **超导量子干涉仪 (SQUIDs)**，探测灵敏度可达：
+- **OPM 灵敏度**: $\sim 1 \text{ fT}/\sqrt{\text{Hz}}$ ($10^{-15} \text{ T}$)
+- **环境背景**: 地磁场约为 $50 \text{ }\mu\text{T}$。
+
+**核心挑战：** 从 $10^{-5} \text{ T}$ 的强地磁背景中提取 $10^{-15} \text{ T}$ 的极微弱信号，其信噪比 (SNR) 低至 **-200 dB**。本项目模拟了如何通过 AI 模式识别来解决这一极端难题。
 
 ---
 
@@ -43,3 +65,4 @@ $$B(r) \approx \frac{\mu_0}{4\pi} \frac{m}{r^3}$$
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
